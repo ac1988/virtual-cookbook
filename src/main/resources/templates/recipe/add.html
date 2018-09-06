@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+<h1 th:text="${title}">Default Title</h1>
+<br/>
+<form method="post" style="max-width:600px;" th:object="${recipe}">
+    <div class="form-group">
+        <label th:for="name">Name</label>
+        <input class="form-control" th:field="*{name}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">First Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[0]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Second Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[1]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Third Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[2]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Fourth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[3]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Fifth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[4]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Sixth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[5]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Seventh Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[6]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Eighth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[7]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Ninth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[8]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="ingredients">Tenth Ingredient</label>
+        <input class="form-control" th:field="*{ingredients[9]}" />
+        <span th:errors="*{name}" class="error"></span>
+    </div>
+    <div class="form-group">
+        <label th:for="directions">Directions</label>
+        <input class="form-control" th:field="*{directions}" />
+        <span th:errors="*{directions}" class="error"></span>
+    </div>
+
+    <div class="form-group">
+        <label th:for="type">Category</label>
+        <select name="categoryId">
+            <option th:each="category : ${categories}"
+                    th:text="${category.name}"
+                    th:value="${category.id}"></option>
+        </select>
+    </div>
+
+    <input type="submit" value="Add Recipe" />
+</form>
+<br/>
+<nav th:replace="fragments :: navigation"></nav>
+
+</body>
+</html>

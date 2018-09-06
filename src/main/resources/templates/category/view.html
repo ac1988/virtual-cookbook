@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org/">
+<head th:replace="fragments :: head"></head>
+<body class="container">
+
+<h1 th:text="${category.name}">Default Title</h1>
+
+<p th:unless="${category.recipes} and ${category.recipes.size()}">No Recipes Added</p>
+
+<ul th:each="recipe : ${category.recipes}">
+    <li th:inline="text"><a th:href="'/recipe/view/' + ${recipe.id}">[[${recipe.name}]]</a></li>
+</ul>
+<br/>
+<nav th:replace="fragments :: navigation"></nav>
+
+</body>
+</html>
